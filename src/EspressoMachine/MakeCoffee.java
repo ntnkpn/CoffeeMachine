@@ -8,7 +8,7 @@ public class MakeCoffee {
 
     void addCoffeeBeans() {
         this.coffeeBeans = 1500;
-    }
+    }  // Adding ingredients by default
 
     void addWater() {
         this.water = 5000;
@@ -20,7 +20,7 @@ public class MakeCoffee {
 
     double getCoffeeBeans() {
         return coffeeBeans;
-    }
+    }  // Returns amount of ingredients to service menu
 
     double getWater() {
         return water;
@@ -30,7 +30,7 @@ public class MakeCoffee {
         return milk;
     }
 
-    public void makeEspresso() {
+    public void makeEspresso() {  // Making coffee ))))
         water -= 30;
         coffeeBeans -= 18;
         System.out.println("Making one shot of espresso. Just a minute =)");
@@ -53,3 +53,4 @@ public class MakeCoffee {
         System.out.println("Here's your latte, have a nice day!");
     }
 }
+// TODO: Add logic if one of ingredients is empty

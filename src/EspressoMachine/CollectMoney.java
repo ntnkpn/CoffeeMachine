@@ -8,17 +8,17 @@ public class CollectMoney {
     MakeCoffee makeCoffee = new MakeCoffee();
 
 
-    private double deposit = 0; // Customer's deposit
-    private double collectedMoney; //Money in coffee machine
+    private double deposit = 0; // Customer's deposit. Default is 0
+    private double collectedMoney; //Money in coffee machine. Default is 0
 
 
     public void espressoMoney() {
-        //Cost of beverage in dollars
-        double espressoCost = 2;
-        if (checkCustomerSolvency(deposit, espressoCost)) {
-            deposit -= espressoCost;
-            collectedMoney += espressoCost;
-            makeCoffee.makeEspresso();
+
+        double espressoCost = 2;  //Cost of beverage in dollars
+        if (checkCustomerSolvency(deposit, espressoCost)) {  // Checking possibility of making beverage. If true making coffee and collecting money
+            deposit -= espressoCost; // Subtracting cost of espresso shot from deposit
+            collectedMoney += espressoCost;  // Adding money to collect in coffee machine
+            makeCoffee.makeEspresso(); // Making coffee
 
         } else {
             System.out.println("Insufficient funds. Your deposit is " + deposit + " dollars.");
@@ -50,7 +50,7 @@ public class CollectMoney {
         }
     }
 
-    public void topUpDeposit() {
+    public void topUpDeposit() {  // Function to add money to deposit
         while (true) {
             System.out.println("You can top up your deposit with 1, 5, 10 and 20 dollars");
             System.out.println("Press 1 to insert 1 dollar");
@@ -85,7 +85,7 @@ public class CollectMoney {
         }
     }
 
-    public double giveChange() {
+    public double giveChange() {  // Give change if it needs
         double change = deposit;
         deposit -= change;
         return change;
@@ -93,9 +93,9 @@ public class CollectMoney {
 
     public double getDeposit() {
         return deposit;
-    }
+    }  // Returns value of deposit
 
-    public boolean checkCustomerSolvency(double deposit, double beverageCost) {
+    public boolean checkCustomerSolvency(double deposit, double beverageCost) {  // Returns true if customer have enough money on deposit
         boolean flag;
         if (deposit >= beverageCost) {
             flag = true;
@@ -107,5 +107,5 @@ public class CollectMoney {
 
     public double getCollectedMoney() {
         return collectedMoney;
-    }
+    }  // Returns earned money after giving change
 }
